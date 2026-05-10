@@ -228,6 +228,44 @@
             color: #f5e6cc;
         }
 
+        /* =========================================
+           4. STYLES SPECIFIQUES PUZZLE & ANIMATIONS
+           ========================================= */
+        .puzzle-grid {
+            display: grid;
+            grid-template-columns: 150px 150px;
+            grid-template-rows: 150px 150px;
+            gap: 2px;
+            margin: 0 auto 20px auto;
+        }
+
+        .puzzle-piece {
+            width: 150px;
+            height: 150px;
+            background-image: url('https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=300');
+            background-size: 300px 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #piece1 { background-position: 0 0; }
+        #piece2 { background-position: -150px 0; }
+        #piece3 { background-position: 0 -150px; }
+        #piece4 { background-position: -150px -150px; }
+
+        .coeur {
+            position: fixed;
+            top: -50px;
+            font-size: 2rem;
+            color: #ff6b6b;
+            animation: fall linear forwards;
+            z-index: 1000;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -295,23 +333,40 @@
 
     <section id="etape2" class="container">
         <h1>Le Franchissement</h1>
-        <p>Derrière cette porte de bois commence notre véritable soirée.<br><br>Laisse le monde extérieur derrière toi,
-            prends une grande inspiration, et tourne la poignée...</p>
-        <p style="font-size: 1rem; color: #888; margin-top: 50px;">
+        <p>Bienvenue dans notre bulle. Entre, ferme la porte derrière toi, et laisse-toi guider par la musique.</p>
+        <iframe style="border-radius:12px; margin: 30px 0;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <p style="font-size: 1rem; color: #888;">
             * Une fois à l'intérieur, trouve le prochain indice et utilise le scanner de l'application.
         </p>
     </section>
 
+    <section id="etape-echo" class="container">
+        <h1>L'Écho de notre Histoire</h1>
+        <p>Certains souvenirs s'écoutent les yeux fermés.</p>
+        <iframe style="border-radius:12px; margin-bottom: 30px;" src="https://open.spotify.com/embed/track/3n3Ppam7vgaVa1iaRUc9Lp?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <p>Écoute bien. Dans quelle ville étions-nous la première fois que nous avons partagé ce morceau ?</p>
+        <input type="text" id="inputEtapeEcho" placeholder="Tapez la ville...">
+        <p class="error" id="errorEtapeEcho">Souvenir incorrect...</p>
+        <button onclick="verifierEtape('etapeEcho', 'paris')">Valider</button>
+    </section>
+
     <section id="etape3" class="container">
-        <h1>Le Reflet</h1>
-        <p>Notre image est parfaite. À présent, rejoins le lit pour une épreuve de déduction.</p>
-        <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=300"
-            style="border-radius: 10px;" alt="Indice">
+        <h1>L'Image Brisée</h1>
+        <p>Le temps fragmente les souvenirs, à toi de les réunir. Tapote les morceaux pour les remettre dans le bon sens.</p>
+        <div class="puzzle-grid" id="puzzle">
+            <div class="puzzle-piece" id="piece1" onclick="tournerPiece(1)"></div>
+            <div class="puzzle-piece" id="piece2" onclick="tournerPiece(2)"></div>
+            <div class="puzzle-piece" id="piece3" onclick="tournerPiece(3)"></div>
+            <div class="puzzle-piece" id="piece4" onclick="tournerPiece(4)"></div>
+        </div>
+        <div id="success-puzzle" class="success-msg">
+            <p>Notre image est parfaite. À présent, rejoins le lit pour une épreuve de déduction.</p>
+        </div>
     </section>
 
     <section id="etape4" class="container">
         <h1>Le Filtre</h1>
-        <p>La solution est sous tes yeux. Superpose ton calque physique à l'écran.</p>
+        <p>La solution est sous tes yeux, il te suffit d'appliquer le bon filtre.</p>
         <div class="grille-chiffres">
             8 3 9 2 <br>4 <span class="chiffre-cle">7</span> 1 6 <br>5 0 8 <span class="chiffre-cle">2</span> <br><span
                 class="chiffre-cle">4</span> 9 3 1 <br>0 5 <span class="chiffre-cle">1</span> 8
@@ -322,12 +377,15 @@
     </section>
 
     <section id="etape5" class="container">
-        <h1>Le Toucher</h1>
-        <p>L'esprit a travaillé, place au corps. Allonge-toi. Je vais tracer un mot sur ton dos. Concentre-toi pour le
-            deviner.</p>
+        <h1>L'Encre Invisible</h1>
+        <p>L'esprit a travaillé, place au corps. Allonge-toi sur le ventre. Je vais utiliser l'huile douce pour écrire lentement un mot secret sur ton dos...</p>
+        <iframe style="border-radius:12px; margin: 20px 0;" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4aYNO8X5RpR?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <input type="text" id="inputEtape5" placeholder="Le mot secret">
         <p class="error" id="errorEtape5">Ressens encore...</p>
         <button onclick="verifierEtape('etape5', 'desir')">Valider</button>
+        <div id="success-etape5" class="success-msg" style="display:none; color: #f5e6cc;">
+            <p>Tes sens sont en éveil absolu. Ouvre la boîte mystère posée par terre pour découvrir ta parure.</p>
+        </div>
     </section>
 
     <section id="etape6" class="container">
@@ -339,8 +397,7 @@
     <section id="etape7" class="container">
         <h1>L'Apothéose</h1>
         <p style="font-size: 1.5rem; line-height: 2;">
-            L'ultime secret se vit.<br><br>
-            Glisse-toi dans l'eau chaude. Laisse l'eau t'envelopper et attends simplement que le ruban glisse...
+            Joyeux anniversaire mon amour.<br><br>Tu as percé tous mes secrets. Je suis à toi.
         </p>
     </section>
 
@@ -486,11 +543,68 @@
             const error = document.getElementById('error' + etape.charAt(0).toUpperCase() + etape.slice(1));
             if (input.value.toLowerCase().trim() === reponseAttendue.toLowerCase()) {
                 error.style.display = 'none'; input.style.border = "2px solid #4caf50";
-                if (etape === 'etape4') window.location.hash = '#etape5';
+                
+                if (etape === 'etapeEcho') {
+                    alert("Exact. Va chercher ton prochain indice là où nos reflets se croisent.");
+                } else if (etape === 'etape4') {
+                    window.location.hash = '#etape5';
+                } else if (etape === 'etape5') {
+                    input.style.display = 'none';
+                    document.querySelector('#etape5 button').style.display = 'none';
+                    document.getElementById('success-etape5').style.display = 'block';
+                }
             } else {
                 error.style.display = 'block'; input.style.border = "2px solid #ff6b6b";
             }
         }
+
+        /* -------------------------------------------
+           JEU : L'IMAGE BRISÉE (Puzzle)
+           ------------------------------------------- */
+        let rotations = { 1: 90, 2: 270, 3: 180, 4: 90 };
+        window.addEventListener('load', () => {
+            for (let i = 1; i <= 4; i++) {
+                const el = document.getElementById('piece' + i);
+                if(el) el.style.transform = `rotate(${rotations[i]}deg)`;
+            }
+        });
+
+        function tournerPiece(id) {
+            rotations[id] = (rotations[id] + 90) % 360;
+            document.getElementById('piece' + id).style.transform = `rotate(${rotations[id]}deg)`;
+            if (rotations[1] === 0 && rotations[2] === 0 && rotations[3] === 0 && rotations[4] === 0) {
+                document.getElementById('success-puzzle').style.display = 'block';
+            }
+        }
+
+        /* -------------------------------------------
+           ANIMATION : L'APOTHÉOSE (Cœurs)
+           ------------------------------------------- */
+        function lancerConfettis() {
+            setInterval(() => {
+                const coeur = document.createElement('div');
+                coeur.innerHTML = '❤️';
+                coeur.className = 'coeur';
+                coeur.style.left = Math.random() * 100 + 'vw';
+                coeur.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(coeur);
+                setTimeout(() => { coeur.remove(); }, 5000);
+            }, 300);
+        }
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.target.id === 'etape7' && mutation.target.classList.contains('active')) {
+                    lancerConfettis();
+                    observer.disconnect();
+                }
+            });
+        });
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            const e7 = document.getElementById('etape7');
+            if(e7) observer.observe(e7, { attributes: true, attributeFilter: ['class'] });
+        });
     </script>
 </body>
 

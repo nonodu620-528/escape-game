@@ -1,0 +1,130 @@
+Étape 1 : Le Franchissement
+🎯 Objectif : Plonger immédiatement votre copine dans l'ambiance et démarrer l'application avant même d'entrer dans le logement.
+
+🖨️ À imprimer / placer physiquement :
+
+Le QR Code n°1.
+
+Où le placer : Collé sur la porte d'entrée du Mazet (à l'extérieur).
+
+Texte écrit sur le papier (au-dessus du QR Code) : "Ne frappe pas. Scanne moi pour ouvrir le premier chapitre de ta nuit."
+
+📱 Détail de la page web correspondante (Page d'accueil) :
+
+Visuel : Une belle photo de vous deux en fond.
+
+Audio : Une musique d'ambiance douce qui se lance automatiquement (si possible) ou un bouton "Play" discret.
+
+Texte affiché : "Bienvenue dans notre bulle. Entre, ferme la porte derrière toi, et cherche le son de nos souvenirs pour continuer."
+
+Étape 2 : L'Écho de notre Histoire
+🎯 Objectif : Faire appel à sa mémoire et à un souvenir commun (l'ouïe).
+
+🖨️ À imprimer / placer physiquement :
+
+Le QR Code n°2.
+
+Où le placer : Posé sur l'enceinte du salon, ou sur la table basse si vous n'avez pas d'enceinte. (Pas de texte physique nécessaire).
+
+📱 Détail de la page web correspondante :
+
+Contenu : Un lecteur audio intégré avec une musique symbolique pour votre couple.
+Musique : Salvatore Lana del Rey - Hera Georgio - Fall in love in october - Concept flou Georgio
+
+
+Texte affiché : "Écoute bien. Dans quelle ville (ou à quel événement) étions-nous la première fois que nous avons partagé ce morceau ?"
+
+Action requise : Un champ de texte où elle doit taper la réponse (ex: "Paris" ou "Festival").
+
+Validation (une fois la bonne réponse tapée) : Le texte change et affiche : "Exact. Va chercher ton prochain indice là où nos reflets se croisent."
+
+Étape 3 : L'Image Brisée
+🎯 Objectif : Résoudre un mini-jeu visuel dans la salle de bain.
+
+🖨️ À imprimer / placer physiquement :
+
+Le QR Code n°3.
+
+Où le placer : Collé directement sur le miroir de la salle de bain. (Pas de texte physique).
+
+📱 Détail de la page web correspondante :
+
+Contenu : Un puzzle numérique (une image de vous deux découpée en carré qu'elle doit remettre dans l'ordre en glissant les pièces avec son doigt).
+
+Action requise : Terminer le puzzle.
+
+Validation (une fois résolu) : Le texte s'affiche : "Notre image est parfaite. À présent, rejoins le lit pour une épreuve de déduction."
+
+Étape 4 : Le Code Caché sous le Calque
+🎯 Objectif : Créer un effet "Wouah" en mélangeant un objet physique et l'écran du téléphone pour trouver un code chiffré.
+
+🖨️ À imprimer / placer physiquement :
+
+Le QR Code n°4.
+
+Où le placer : Imprimé directement sur (ou collé au dos de) votre carton sombre percé de 4 trous carrés (le calque). Le tout est glissé dans une belle enveloppe posée sur le lit.
+
+📱 Détail de la page web correspondante :
+
+Contenu : L'écran affiche une image (très important que ce soit une image fixe et non du texte tapé, pour éviter que ça bouge selon la taille de son écran) remplie d'une grille de chiffres aléatoires.
+
+Texte affiché au-dessus : "La solution est sous tes yeux, il te suffit d'appliquer le bon filtre. Superpose ton indice physique à l'écran."
+
+Action requise : Elle pose le carton sur l'écran. 4 chiffres apparaissent à travers les trous. En bas de la page web, un champ de saisie lui demande de taper ce code à 4 chiffres.
+
+Validation : Une fois le bon code entré, la page charge automatiquement l'Étape 5.
+
+Étape 5 : L'Encre Invisible
+🎯 Objectif : Transition vers la sensualité et le contact physique (le massage).
+
+🖨️ À imprimer / placer physiquement :
+
+AUCUN QR CODE ICI.
+
+Où le placer : Juste la bouteille d'huile de massage préparée bien en évidence sur la table de chevet.
+
+📱 Détail de la page web correspondante (qui a apparu suite à l'étape 4) :
+
+Texte affiché : "L'esprit a travaillé, place au corps. Allonge-toi sur le ventre. Je vais utiliser l'huile douce pour écrire lentement un mot secret sur ton dos. Concentre-toi sur chaque courbe de mes doigts pour deviner ce mot."
+
+Action requise : Vous lui faites le massage et tracez un mot DESIR. Elle doit taper ce mot dans le champ de saisie sur son téléphone.
+
+Validation (une fois le mot tapé) : Le texte affiche : "Tes sens sont en éveil absolu. Ouvre le tiroir de la commode (ou la boîte posée par terre) pour découvrir ta parure pour la suite de la nuit."
+
+Étape 6 : La Parure Sensuelle
+🎯 Objectif : La faire s'habiller avec la tenue sexy prévue pour l'eau et la diriger vers le final.
+
+🖨️ À imprimer / placer physiquement :
+
+Le QR Code n°5.
+
+Où le placer : Glissé à l'intérieur de la boîte qui contient le maillot/trikini et le kimono transparent.
+
+📱 Détail de la page web correspondante :
+
+Texte affiché : "Tu es magnifique. Le dernier mystère flotte sur l'eau bouillonnante. Rejoins le jacuzzi."
+
+(Aucune énigme sur cette page, c'est une simple page de transition vers la dernière étape).
+
+Étape 7 : Le Secret des Eaux
+🎯 Objectif : Le grand final dans le jacuzzi, avec l'apparition du champagne et du cadeau au moment de la résolution.
+
+🖨️ À imprimer / placer physiquement :
+
+Le QR Code n°6.
+
+Où le placer : Imprimé sur un petit papier, roulé et glissé à l'intérieur de la petite bouteille en verre bien fermée, qui flotte dans le jacuzzi.
+
+📱 Détail de la page web correspondante :
+
+Texte affiché : Une question ultime très intime ou romantique, par exemple : "Pour déverrouiller ton cadeau, réponds à cette question : Quel est mon surnom préféré pour toi ?" (ou une question sur votre couple).
+
+Action requise : Elle tape la réponse exacte.
+
+Validation :
+
+L'écran s'anime (pluie de cœurs, de confettis, ou un beau "JOYEUX ANNIVERSAIRE").
+
+Texte final affiché : "Cadeau déverrouillé ! Tourne-toi..."
+
+(C'est le signal visuel pour vous : vous arrivez avec les coupes de champagne et le cadeau).
