@@ -122,8 +122,13 @@
            2. ANIMATIONS SPECIFIQUES
            ========================================= */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         /* Scanner View */
@@ -184,13 +189,14 @@
             font-size: 3.5rem;
             font-family: 'Times New Roman', serif;
             color: #ffcccc;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
             cursor: pointer;
-            box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5), 0 5px 15px rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.6);
             position: relative;
             border: 3px solid #8b0000;
             transition: all 0.3s ease;
         }
+
         .sceau::before {
             content: '';
             position: absolute;
@@ -198,7 +204,7 @@
             height: 90px;
             border-radius: 50%;
             border: 2px double rgba(255, 204, 204, 0.4);
-            box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
             pointer-events: none;
         }
 
@@ -208,16 +214,26 @@
         }
 
         .grille-chiffres {
-            font-family: monospace;
-            font-size: 1.5rem;
-            letter-spacing: 15px;
-            line-height: 2.5;
+            display: grid;
+            grid-template-columns: repeat(4, 1.2cm);
+            grid-template-rows: repeat(5, 1.2cm);
+            gap: 0.3cm;
+            justify-content: center;
             background: #000;
-            padding: 20px;
+            padding: 0.5cm;
             border-radius: 10px;
-            margin-bottom: 30px;
-            color: #666;
+            margin: 0 auto 30px auto;
             border: 1px solid #333;
+            width: fit-content;
+        }
+
+        .chiffre-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: #666;
         }
 
         .chiffre-cle {
@@ -244,10 +260,21 @@
             transition: transform 0.3s ease;
         }
 
-        #piece1 { background-position: 0 0; }
-        #piece2 { background-position: -150px 0; }
-        #piece3 { background-position: 0 -150px; }
-        #piece4 { background-position: -150px -150px; }
+        #piece1 {
+            background-position: 0 0;
+        }
+
+        #piece2 {
+            background-position: -150px 0;
+        }
+
+        #piece3 {
+            background-position: 0 -150px;
+        }
+
+        #piece4 {
+            background-position: -150px -150px;
+        }
 
         .coeur {
             position: fixed;
@@ -259,7 +286,9 @@
         }
 
         @keyframes fall {
-            to { transform: translateY(110vh) rotate(360deg); }
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
         }
     </style>
 </head>
@@ -269,7 +298,9 @@
     <section id="accueil" class="container active">
         <h1>Bienvenue</h1>
         <p style="font-size: 1.4rem;">Joyeux anniversaire.</p>
-        <p>Ce soir, tu es au centre de tout. Laisse-toi guider, observe, et ressens chaque instant.<br><br>Ton téléphone sera ton seul allié. À chaque fois qu'une énigme sera résolue, tu pourras scanner la suite de ton parcours.</p>
+        <p>Ce soir, tu es au centre de tout. Laisse-toi guider, observe, et ressens chaque instant.<br><br>Ton téléphone
+            sera ton seul allié. À chaque fois qu'une énigme sera résolue, tu pourras scanner la suite de ton parcours.
+        </p>
         <button class="btn-primary" onclick="ouvrirScanner()">Ouvrir le premier chapitre</button>
     </section>
 
@@ -283,10 +314,12 @@
 
     <section id="etape1-acte1" class="container">
         <h1>L'Éveil</h1>
-        <p id="desc-acte1">C'est ta soirée. Pour éveiller le premier chapitre de ta nuit, pose ton empreinte ici et maintiens le contact.</p>
+        <p id="desc-acte1">C'est ta soirée. Pour éveiller le premier chapitre de ta nuit, pose ton empreinte ici et
+            maintiens le contact.</p>
         <div id="empreinte-zone" class="empreinte-container">
             <div id="empreinte-fill"></div>
-            <svg class="empreinte-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f5e6cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="empreinte-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="#f5e6cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path>
                 <path d="M14 13.12c0 2.38 0 6.38-3.46 8.88"></path>
                 <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"></path>
@@ -326,7 +359,8 @@
 
     <section id="etape1-diner" class="container">
         <h1>La Préparation</h1>
-        <p>Le premier secret est révélé. Prépare-toi avec cette nouvelle tenue.<br><br>Nous partons dîner pour célébrer cette soirée. Ton aventure reprendra à notre retour...</p>
+        <p>Le premier secret est révélé. Prépare-toi avec cette nouvelle tenue.<br><br>Nous partons dîner pour célébrer
+            cette soirée. Ton aventure reprendra à notre retour...</p>
         <button style="margin-top: 30px;" onclick="ouvrirScanner()">Scanner la suite (au retour)</button>
     </section>
 
@@ -342,8 +376,12 @@
     <section id="etape-echo" class="container">
         <h1>L'Écho de notre Histoire</h1>
         <p id="desc-etapeEcho1">Ferme les yeux et écoute.</p>
-        <iframe style="border-radius:12px; margin-bottom: 30px;" src="https://open.spotify.com/embed/track/3n3Ppam7vgaVa1iaRUc9Lp?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <p id="desc-etapeEcho2">Te souviens-tu du lieu exact où ce morceau a marqué ton esprit pour la première fois ?</p>
+        <iframe style="border-radius:12px; margin-bottom: 30px;"
+            src="https://open.spotify.com/embed/track/3n3Ppam7vgaVa1iaRUc9Lp?utm_source=generator&theme=0" width="100%"
+            height="152" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <p id="desc-etapeEcho2">Te souviens-tu du lieu exact où ce morceau a marqué ton esprit pour la première fois ?
+        </p>
         <input type="text" id="inputEtapeEcho" placeholder="Tapez la ville...">
         <p class="error" id="errorEtapeEcho">Souvenir incorrect...</p>
         <button onclick="verifierEtape('etapeEcho', 'paris')" id="btn-etapeEcho">Valider</button>
@@ -355,7 +393,8 @@
 
     <section id="etape3" class="container">
         <h1>L'Image Brisée</h1>
-        <p id="desc-puzzle">Le temps fragmente parfois les choses, à toi de les réunir. Tapote les morceaux pour les remettre dans le bon sens.</p>
+        <p id="desc-puzzle">Le temps fragmente parfois les choses, à toi de les réunir. Tapote les morceaux pour les
+            remettre dans le bon sens.</p>
         <div class="puzzle-grid" id="puzzle">
             <div class="puzzle-piece" id="piece1" onclick="tournerPiece(1)"></div>
             <div class="puzzle-piece" id="piece2" onclick="tournerPiece(2)"></div>
@@ -372,7 +411,26 @@
         <h1>Le Filtre</h1>
         <p>La solution est sous tes yeux, il te suffit d'appliquer le bon filtre.</p>
         <div class="grille-chiffres">
-            8 3 9 2 <br>4 7 1 6 <br>5 0 8 2 <br>4 9 3 1 <br>0 5 1 8
+            <div class="chiffre-cell">8</div>
+            <div class="chiffre-cell">3</div>
+            <div class="chiffre-cell">9</div>
+            <div class="chiffre-cell">2</div>
+            <div class="chiffre-cell">4</div>
+            <div class="chiffre-cell">7</div>
+            <div class="chiffre-cell">1</div>
+            <div class="chiffre-cell">6</div>
+            <div class="chiffre-cell">5</div>
+            <div class="chiffre-cell">0</div>
+            <div class="chiffre-cell">8</div>
+            <div class="chiffre-cell">2</div>
+            <div class="chiffre-cell">4</div>
+            <div class="chiffre-cell">9</div>
+            <div class="chiffre-cell">3</div>
+            <div class="chiffre-cell">1</div>
+            <div class="chiffre-cell">0</div>
+            <div class="chiffre-cell">5</div>
+            <div class="chiffre-cell">1</div>
+            <div class="chiffre-cell">8</div>
         </div>
         <input type="password" id="inputEtape4" placeholder="Code à 4 chiffres">
         <p class="error" id="errorEtape4">Code incorrect...</p>
@@ -381,16 +439,18 @@
 
     <section id="etape4-transition" class="container">
         <h1>Mise à nu</h1>
-        <p>L'esprit a assez travaillé, il est temps de laisser place aux sens.<br><br>Déshabille-toi et rends-toi vers la table de chevet à côté du lit. Un autre indice t'y attend.</p>
+        <p>L'esprit a assez travaillé, il est temps de laisser place aux sens.<br><br>Rends-toi vers la table de chevet
+            à côté du lit. Un autre indice t'y attend.</p>
         <button style="margin-top: 30px;" onclick="ouvrirScanner()">Scanner la suite</button>
     </section>
 
     <section id="etape5" class="container">
         <h1>L'Encre Invisible</h1>
-        <p id="desc-etape5">Rends-toi dans la pièce avec la table de massage.<br><br>Concentre-toi sur tes ressentis. Allonge-toi sur le ventre. Laisse l'huile douce tracer un mot secret sur ton dos...</p>
+        <p id="desc-etape5">Rends-toi dans la pièce avec la table de massage.<br><br>Concentre-toi sur tes ressentis.
+            Allonge-toi sur le ventre. Laisse l'huile douce tracer un mot secret sur ton dos...</p>
         <input type="text" id="inputEtape5" placeholder="Le mot secret" style="margin-top: 20px;">
         <p class="error" id="errorEtape5">Ressens encore...</p>
-        <button onclick="verifierEtape('etape5', 'desir')" id="btn-etape5">Valider</button>
+        <button onclick="verifierEtape('etape5', 'désir')" id="btn-etape5">Valider</button>
         <div id="success-etape5" class="success-msg" style="display:none; color: #f5e6cc;">
             <p>Tes sens sont en éveil absolu. Ouvre la boîte mystère posée par terre pour découvrir ta parure.</p>
             <button style="margin-top: 20px;" onclick="ouvrirScanner()">Scanner la suite</button>
@@ -399,15 +459,18 @@
 
     <section id="etape6" class="container">
         <h1>La Métamorphose</h1>
-        <p>Tu es magnifique. Rends-toi dans la salle de bain pour revêtir cette parure et nouer ce bandeau sur tes yeux dès maintenant. Ne bouge
-            plus.<br><br>Laisse-toi ensuite guider les yeux bandés vers la source...</p>
+        <p>Tu es magnifique. Rends-toi dans la salle de bain pour revêtir cette parure et nouer ce bandeau sur tes yeux.
+            Ne bouge plus.
+            <br><br>Laisse-toi ensuite guider les yeux bandés vers la source...
+        </p>
         <button style="margin-top: 30px;" onclick="ouvrirScanner()">Scanner la suite</button>
     </section>
 
     <section id="etape7" class="container">
         <h1>L'Apothéose</h1>
         <p style="font-size: 1.5rem; line-height: 2;">
-            Joyeux anniversaire.<br><br>Tu as percé tous les mystères de cette nuit. Profite pleinement de ton cadeau.
+            Joyeux anniversaire.<br><br>Tu as percé tous les mystères de cette nuit. Profite pleinement de ton cadeau et
+            de ta soirée.
         </p>
     </section>
 
@@ -598,7 +661,7 @@
         window.addEventListener('load', () => {
             for (let i = 1; i <= 4; i++) {
                 const el = document.getElementById('piece' + i);
-                if(el) el.style.transform = `rotate(${rotations[i]}deg)`;
+                if (el) el.style.transform = `rotate(${rotations[i]}deg)`;
             }
         });
 
@@ -634,10 +697,10 @@
                 }
             });
         });
-        
+
         window.addEventListener('DOMContentLoaded', () => {
             const e7 = document.getElementById('etape7');
-            if(e7) observer.observe(e7, { attributes: true, attributeFilter: ['class'] });
+            if (e7) observer.observe(e7, { attributes: true, attributeFilter: ['class'] });
         });
     </script>
 </body>
