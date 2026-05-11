@@ -310,8 +310,14 @@
         <div class="sceau" id="sceau-cire" onclick="tapoterSceau()">A</div>
         <div id="success-boite" class="success-msg">
             <p>Le sceau est brisé ! Découvre ta première surprise et prépare-toi pour la suite...</p>
-            <button onclick="ouvrirScanner()">Scanner la suite</button>
+            <button onclick="window.location.hash='#etape1-diner'">Continuer</button>
         </div>
+    </section>
+
+    <section id="etape1-diner" class="container">
+        <h1>La Préparation</h1>
+        <p>Le premier secret est révélé. Prépare-toi avec cette nouvelle tenue.<br><br>Nous partons dîner pour célébrer cette soirée. Ton aventure reprendra à notre retour...</p>
+        <button style="margin-top: 30px;" onclick="ouvrirScanner()">Scanner la suite (au retour)</button>
     </section>
 
     <section id="etape2" class="container">
@@ -356,12 +362,17 @@
         <h1>Le Filtre</h1>
         <p>La solution est sous tes yeux, il te suffit d'appliquer le bon filtre.</p>
         <div class="grille-chiffres">
-            8 3 9 2 <br>4 <span class="chiffre-cle">7</span> 1 6 <br>5 0 8 <span class="chiffre-cle">2</span> <br><span
-                class="chiffre-cle">4</span> 9 3 1 <br>0 5 <span class="chiffre-cle">1</span> 8
+            8 3 9 2 <br>4 7 1 6 <br>5 0 8 2 <br>4 9 3 1 <br>0 5 1 8
         </div>
         <input type="password" id="inputEtape4" placeholder="Code à 4 chiffres">
         <p class="error" id="errorEtape4">Code incorrect...</p>
-        <button onclick="verifierEtape('etape4', '7241')">Déverrouiller</button>
+        <button onclick="verifierEtape('etape4', '1505')">Déverrouiller</button>
+    </section>
+
+    <section id="etape4-transition" class="container">
+        <h1>Mise à nu</h1>
+        <p>L'esprit a assez travaillé, il est temps de laisser place aux sens.<br><br>Déshabille-toi et rends-toi vers la table de chevet à côté du lit. Un autre indice t'y attend.</p>
+        <button style="margin-top: 30px;" onclick="ouvrirScanner()">Scanner la suite</button>
     </section>
 
     <section id="etape5" class="container">
@@ -552,7 +563,7 @@
                     document.getElementById('btn-etapeEcho').style.display = 'none';
                     document.getElementById('success-etapeEcho').style.display = 'block';
                 } else if (etape === 'etape4') {
-                    window.location.hash = '#etape5';
+                    window.location.hash = '#etape4-transition';
                 } else if (etape === 'etape5') {
                     input.style.display = 'none';
                     document.getElementById('btn-etape5').style.display = 'none';
