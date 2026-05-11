@@ -245,36 +245,33 @@
            ========================================= */
         .puzzle-grid {
             display: grid;
-            grid-template-columns: 150px 150px;
-            grid-template-rows: 150px 150px;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
             gap: 2px;
             margin: 0 auto 20px auto;
+            justify-content: center;
         }
 
         .puzzle-piece {
-            width: 150px;
-            height: 150px;
-            background-image: url('https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=300');
+            width: 100px;
+            height: 100px;
+            /* Remplacer 'photo_couple.jpg' par le nom de votre vraie photo, qui doit de préférence être carrée (ex: 300x300 pixels) */
+            background-image: url('photo_couple.jpg');
+            background-color: #333; /* Fond de secours */
             background-size: 300px 300px;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
 
-        #piece1 {
-            background-position: 0 0;
-        }
-
-        #piece2 {
-            background-position: -150px 0;
-        }
-
-        #piece3 {
-            background-position: 0 -150px;
-        }
-
-        #piece4 {
-            background-position: -150px -150px;
-        }
+        #piece1 { background-position: 0 0; }
+        #piece2 { background-position: -100px 0; }
+        #piece3 { background-position: -200px 0; }
+        #piece4 { background-position: 0 -100px; }
+        #piece5 { background-position: -100px -100px; }
+        #piece6 { background-position: -200px -100px; }
+        #piece7 { background-position: 0 -200px; }
+        #piece8 { background-position: -100px -200px; }
+        #piece9 { background-position: -200px -200px; }
 
         .coeur {
             position: fixed;
@@ -297,7 +294,7 @@
 
     <section id="accueil" class="container active">
         <h1>Bienvenue</h1>
-        <p style="font-size: 1.4rem;">Joyeux anniversaire.</p>
+        <p style="font-size: 1.4rem;">Joyeux anniversaire mon amour !</p>
         <p>Ce soir, tu es au centre de tout. Laisse-toi guider, observe, et ressens chaque instant.<br><br>Ton téléphone
             sera ton seul allié. À chaque fois qu'une énigme sera résolue, tu pourras scanner la suite de ton parcours.
         </p>
@@ -333,7 +330,7 @@
         </div>
         <p class="error" id="error-acte1">Le lien s'est refroidi... Garde ton doigt appuyé.</p>
         <div id="success-acte1" class="success-msg">
-            <p>Le chemin est activé. Suis physiquement le ruban de soie dans la nuit.</p>
+            <p>Le chemin est activé. Suis physiquement le ruban de soie dans le jardin.</p>
             <button onclick="window.location.hash='#etape1-acte2'">Continuer</button>
         </div>
     </section>
@@ -366,7 +363,7 @@
 
     <section id="etape2" class="container">
         <h1>Le Retour</h1>
-        <p>Cet espace est le tien ce soir. Entre, ferme la porte derrière toi, et laisse-toi porter.</p>
+        <p>Le monde extérieur s'efface. Franchis ce seuil, ferme doucement la porte et laisse l'atmosphère t'envelopper...</p>
         <p style="font-size: 1rem; color: #888; margin-top: 50px;">
             * Une fois à l'intérieur, trouve le prochain indice.
         </p>
@@ -400,6 +397,11 @@
             <div class="puzzle-piece" id="piece2" onclick="tournerPiece(2)"></div>
             <div class="puzzle-piece" id="piece3" onclick="tournerPiece(3)"></div>
             <div class="puzzle-piece" id="piece4" onclick="tournerPiece(4)"></div>
+            <div class="puzzle-piece" id="piece5" onclick="tournerPiece(5)"></div>
+            <div class="puzzle-piece" id="piece6" onclick="tournerPiece(6)"></div>
+            <div class="puzzle-piece" id="piece7" onclick="tournerPiece(7)"></div>
+            <div class="puzzle-piece" id="piece8" onclick="tournerPiece(8)"></div>
+            <div class="puzzle-piece" id="piece9" onclick="tournerPiece(9)"></div>
         </div>
         <div id="success-puzzle" class="success-msg">
             <p>L'image est désormais parfaite. À présent, rejoins le lit pour une épreuve de déduction.</p>
@@ -446,7 +448,7 @@
 
     <section id="etape5" class="container">
         <h1>L'Encre Invisible</h1>
-        <p id="desc-etape5">Rends-toi dans la pièce avec la table de massage.<br><br>Concentre-toi sur tes ressentis.
+        <p id="desc-etape5">Laisse tes pas te guider vers le cocon de détente préparé pour toi.<br><br>Concentre-toi sur tes ressentis.
             Allonge-toi sur le ventre. Laisse l'huile douce tracer un mot secret sur ton dos...</p>
         <input type="text" id="inputEtape5" placeholder="Le mot secret" style="margin-top: 20px;">
         <p class="error" id="errorEtape5">Ressens encore...</p>
@@ -469,7 +471,8 @@
     <section id="etape7" class="container">
         <h1>L'Apothéose</h1>
         <p style="font-size: 1.5rem; line-height: 2;">
-            Joyeux anniversaire.<br><br>Tu as percé tous les mystères de cette nuit. Profite pleinement de ton cadeau et
+            Joyeux anniversaire mon amour!<br><br>Tu as percé tous les mystères de cette nuit. Profite pleinement de ton
+            cadeau et
             de ta soirée.
         </p>
     </section>
@@ -657,9 +660,9 @@
         /* -------------------------------------------
            JEU : L'IMAGE BRISÉE (Puzzle)
            ------------------------------------------- */
-        let rotations = { 1: 90, 2: 270, 3: 180, 4: 90 };
+        let rotations = { 1: 90, 2: 270, 3: 180, 4: 90, 5: 180, 6: 270, 7: 90, 8: 180, 9: 270 };
         window.addEventListener('load', () => {
-            for (let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 9; i++) {
                 const el = document.getElementById('piece' + i);
                 if (el) el.style.transform = `rotate(${rotations[i]}deg)`;
             }
@@ -668,7 +671,16 @@
         function tournerPiece(id) {
             rotations[id] = (rotations[id] + 90) % 360;
             document.getElementById('piece' + id).style.transform = `rotate(${rotations[id]}deg)`;
-            if (rotations[1] === 0 && rotations[2] === 0 && rotations[3] === 0 && rotations[4] === 0) {
+            
+            let success = true;
+            for (let i = 1; i <= 9; i++) {
+                if (rotations[i] !== 0) {
+                    success = false;
+                    break;
+                }
+            }
+            
+            if (success) {
                 document.getElementById('success-puzzle').style.display = 'block';
                 document.getElementById('desc-puzzle').style.display = 'none';
             }
