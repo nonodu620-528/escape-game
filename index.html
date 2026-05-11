@@ -119,29 +119,11 @@
         }
 
         /* =========================================
-           2. BOUTON FLOTTANT DU SCANNER
+           2. ANIMATIONS SPECIFIQUES
            ========================================= */
-        #fab-scanner {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #8b0000;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            font-family: sans-serif;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            cursor: pointer;
-            display: none;
-            /* Masqué sur l'accueil */
-            border: 1px solid #f5e6cc;
-        }
-
-        #fab-scanner:active {
-            transform: scale(0.95);
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Scanner View */
@@ -172,7 +154,9 @@
         }
 
         .empreinte-icon {
-            font-size: 3.5rem;
+            width: 60px;
+            height: 60px;
+            fill: #f5e6cc;
             z-index: 2;
             pointer-events: none;
         }
@@ -280,15 +264,11 @@
 
 <body>
 
-    <div id="fab-scanner" onclick="ouvrirScanner()">📷 Scanner un indice</div>
-
     <section id="accueil" class="container active">
         <h1>Bienvenue</h1>
-        <p style="font-size: 1.4rem;">Joyeux anniversaire mon amour.</p>
-        <p>Ce soir, laisse-toi guider. Tu devras observer, ressentir, et me faire confiance.<br><br>Ton téléphone sera
-            ton seul allié. À chaque fois que tu trouveras un de mes messages, ouvre le scanner pour dévoiler son
-            secret.</p>
-        <button class="btn-primary" onclick="ouvrirScanner()">Commencer l'expérience</button>
+        <p style="font-size: 1.4rem;">Joyeux anniversaire.</p>
+        <p>Ce soir, tu es au centre de tout. Laisse-toi guider, observe, et ressens chaque instant.<br><br>Ton téléphone sera ton seul allié. À chaque fois qu'une énigme sera résolue, tu pourras scanner la suite de ton parcours.</p>
+        <button class="btn-primary" onclick="ouvrirScanner()">Ouvrir le premier chapitre</button>
     </section>
 
     <section id="scanner-view" class="container">
@@ -301,57 +281,65 @@
 
     <section id="etape1-acte1" class="container">
         <h1>L'Éveil</h1>
-        <p>Nos vies étaient deux points isolés, jusqu'à ce qu'un fil rouge les relie. Pose ton doigt ici et maintiens le
-            contact pour éveiller le chemin.</p>
+        <p>C'est ta soirée. Pour éveiller le premier chapitre de ta nuit, pose ton empreinte ici et maintiens le contact.</p>
         <div id="empreinte-zone" class="empreinte-container">
-            <div id="empreinte-fill"></div><span class="empreinte-icon">🤍</span>
+            <div id="empreinte-fill"></div>
+            <svg class="empreinte-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" fill-rule="evenodd" clip-rule="evenodd" opacity="0"/></svg>
+            <!-- Remplace par une icone plus adaptée: -->
+            <svg class="empreinte-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;"><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><circle cx="12" cy="12" r="4"/></svg>
         </div>
         <p class="error" id="error-acte1">Le lien s'est refroidi... Garde ton doigt appuyé.</p>
         <div id="success-acte1" class="success-msg">
-            <p>Le lien est activé. Suis physiquement le ruban de soie dans la nuit.</p>
+            <p>Le chemin est activé. Suis physiquement le ruban de soie dans la nuit.</p>
+            <button onclick="window.location.hash='#etape1-acte2'">Continuer</button>
         </div>
     </section>
 
     <section id="etape1-acte2" class="container">
         <h1>Le Lien</h1>
-        <p>Ton deuxième pas est entravé par notre fil rouge.<br><br>Prends le temps de le libérer délicatement avec tes
-            mains.</p>
+        <p>Ton chemin est entravé par un ruban.<br><br>Prends le temps de te libérer délicatement.</p>
         <p style="font-size: 1rem; color: #888; margin-top: 20px;">
-            * Une fois la chaussure libre, continue simplement de suivre le ruban de soie jusqu'à sa source...
+            * Une fois libre, continue simplement de suivre le ruban de soie jusqu'à sa source...
         </p>
+        <button style="margin-top: 30px;" onclick="ouvrirScanner()">Scanner la suite</button>
     </section>
 
     <section id="etape1-boite" class="container">
         <h1>L'Écrin Scellé</h1>
-        <p>Ce ruban est scellé par notre histoire. Pour obtenir le droit d'ouvrir ton écrin, frappe ce sceau 15 fois
-            (Indice : la date d'aujourd'hui).</p>
+        <p>Un premier écrin t'attend. Pour obtenir le droit de l'ouvrir, brise ce sceau en le frappant 15 fois (Indice : la date d'aujourd'hui).</p>
         <div class="sceau" id="sceau-cire" onclick="tapoterSceau()">A</div>
         <div id="success-boite" class="success-msg">
-            <p>Le sceau est brisé ! Dénoue le ruban, découvre ta parure et prépare-toi pour la suite...</p>
+            <p>Le sceau est brisé ! Découvre ta première surprise et prépare-toi pour la suite...</p>
+            <button onclick="ouvrirScanner()">Scanner la suite</button>
         </div>
     </section>
 
     <section id="etape2" class="container">
         <h1>Le Franchissement</h1>
-        <p>Bienvenue dans notre bulle. Entre, ferme la porte derrière toi, et laisse-toi guider par la musique.</p>
+        <p>Cet espace est le tien ce soir. Entre, ferme la porte derrière toi, et laisse-toi porter.</p>
         <p style="font-size: 1rem; color: #888; margin-top: 50px;">
-            * Une fois à l'intérieur, trouve le prochain indice et utilise le scanner de l'application.
+            * Une fois à l'intérieur, trouve le prochain indice.
         </p>
+        <button style="margin-top: 30px;" onclick="ouvrirScanner()">Scanner la suite</button>
     </section>
 
     <section id="etape-echo" class="container">
         <h1>L'Écho de notre Histoire</h1>
-        <p>Certains souvenirs s'écoutent les yeux fermés.</p>
+        <p>Ferme les yeux et écoute.</p>
         <iframe style="border-radius:12px; margin-bottom: 30px;" src="https://open.spotify.com/embed/track/3n3Ppam7vgaVa1iaRUc9Lp?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <p>Écoute bien. Dans quelle ville étions-nous la première fois que nous avons partagé ce morceau ?</p>
+        <p>Te souviens-tu du lieu exact où ce morceau a marqué ton esprit pour la première fois ?</p>
         <input type="text" id="inputEtapeEcho" placeholder="Tapez la ville...">
         <p class="error" id="errorEtapeEcho">Souvenir incorrect...</p>
-        <button onclick="verifierEtape('etapeEcho', 'paris')">Valider</button>
+        <button onclick="verifierEtape('etapeEcho', 'paris')" id="btn-etapeEcho">Valider</button>
+        <div id="success-etapeEcho" class="success-msg" style="display:none; color: #f5e6cc;">
+            <p>Exact. Va chercher ton prochain indice là où nos reflets se croisent.</p>
+            <button style="margin-top: 20px;" onclick="ouvrirScanner()">Scanner la suite</button>
+        </div>
     </section>
 
     <section id="etape3" class="container">
         <h1>L'Image Brisée</h1>
-        <p>Le temps fragmente les souvenirs, à toi de les réunir. Tapote les morceaux pour les remettre dans le bon sens.</p>
+        <p>Le temps fragmente parfois les choses, à toi de les réunir. Tapote les morceaux pour les remettre dans le bon sens.</p>
         <div class="puzzle-grid" id="puzzle">
             <div class="puzzle-piece" id="piece1" onclick="tournerPiece(1)"></div>
             <div class="puzzle-piece" id="piece2" onclick="tournerPiece(2)"></div>
@@ -359,7 +347,8 @@
             <div class="puzzle-piece" id="piece4" onclick="tournerPiece(4)"></div>
         </div>
         <div id="success-puzzle" class="success-msg">
-            <p>Notre image est parfaite. À présent, rejoins le lit pour une épreuve de déduction.</p>
+            <p>L'image est désormais parfaite. À présent, rejoins le lit pour une épreuve de déduction.</p>
+            <button style="margin-top: 20px;" onclick="ouvrirScanner()">Scanner la suite</button>
         </div>
     </section>
 
@@ -377,38 +366,41 @@
 
     <section id="etape5" class="container">
         <h1>L'Encre Invisible</h1>
-        <p>L'esprit a travaillé, place au corps. Allonge-toi sur le ventre. Je vais utiliser l'huile douce pour écrire lentement un mot secret sur ton dos...</p>
+        <p>Concentre-toi sur tes ressentis. Allonge-toi sur le ventre. Laisse l'huile douce tracer un mot secret sur ton dos...</p>
         <input type="text" id="inputEtape5" placeholder="Le mot secret" style="margin-top: 20px;">
         <p class="error" id="errorEtape5">Ressens encore...</p>
-        <button onclick="verifierEtape('etape5', 'desir')">Valider</button>
+        <button onclick="verifierEtape('etape5', 'desir')" id="btn-etape5">Valider</button>
         <div id="success-etape5" class="success-msg" style="display:none; color: #f5e6cc;">
             <p>Tes sens sont en éveil absolu. Ouvre la boîte mystère posée par terre pour découvrir ta parure.</p>
+            <button style="margin-top: 20px;" onclick="ouvrirScanner()">Scanner la suite</button>
         </div>
     </section>
 
     <section id="etape6" class="container">
         <h1>La Métamorphose</h1>
         <p>Tu es magnifique. Revêts cette parure et noue ce bandeau sur tes yeux dès maintenant. Ne bouge
-            plus.<br><br>Ton guide va venir prendre ta main pour te mener à la source...</p>
+            plus.<br><br>Laisse-toi ensuite guider les yeux bandés vers la source...</p>
+        <button style="margin-top: 30px;" onclick="ouvrirScanner()">Scanner la suite</button>
     </section>
 
     <section id="etape7" class="container">
         <h1>L'Apothéose</h1>
         <p style="font-size: 1.5rem; line-height: 2;">
-            Joyeux anniversaire mon amour.<br><br>Tu as percé tous mes secrets. Je suis à toi.
+            Joyeux anniversaire.<br><br>Tu as percé tous les mystères de cette nuit. Profite pleinement de ton cadeau.
         </p>
     </section>
 
     <script>
-        let html5QrcodeScanner = null;
-        const fabScanner = document.getElementById('fab-scanner');
+        let html5QrCode = null;
 
         /* -------------------------------------------
            GESTION DE L'AFFICHAGE ET DE LA MÉMOIRE
            ------------------------------------------- */
         function showEtape(hash) {
             // Arrêter le scanner s'il tournait en arrière plan
-            if (html5QrcodeScanner) { html5QrcodeScanner.clear(); html5QrcodeScanner = null; }
+            if (html5QrCode && html5QrCode.isScanning) {
+                html5QrCode.stop().then(() => { html5QrCode.clear(); }).catch(e => console.log(e));
+            }
 
             document.querySelectorAll('.container').forEach(el => el.classList.remove('active'));
             const id = hash.replace('#', '') || 'accueil';
@@ -420,9 +412,6 @@
                 // Sauvegarder l'état (sauf si on est sur l'accueil ou le scanner)
                 if (id !== 'accueil' && id !== 'scanner-view') {
                     localStorage.setItem('sauvegarde_etape', id);
-                    fabScanner.style.display = 'block'; // Afficher le bouton flottant
-                } else {
-                    fabScanner.style.display = 'none'; // Cacher sur l'accueil
                 }
             }
         }
@@ -433,7 +422,7 @@
             if (window.location.hash) {
                 showEtape(window.location.hash); // S'il y a un lien direct
             } else if (etapeSauvee) {
-                showEtape(etapeSauvee); // Restauration après fermeture (ex: retour du resto)
+                showEtape(etapeSauvee); // Restauration après fermeture
             } else {
                 showEtape('accueil'); // Première fois
             }
@@ -448,28 +437,44 @@
            ------------------------------------------- */
         function ouvrirScanner() {
             showEtape('scanner-view');
-            // Initialisation de la caméra
-            html5QrcodeScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: { width: 250, height: 250 } }, false);
-            html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+            // Initialisation directe de la caméra sans choix
+            if (!html5QrCode) {
+                html5QrCode = new Html5Qrcode("reader");
+            }
+            html5QrCode.start(
+                { facingMode: "environment" }, // Caméra arrière
+                { fps: 10, qrbox: { width: 250, height: 250 } },
+                onScanSuccess,
+                onScanFailure
+            ).catch((err) => {
+                alert("Impossible d'accéder à la caméra. Autorisez l'appareil photo dans votre navigateur.");
+            });
         }
 
         function fermerScanner() {
             // Retourner à la dernière étape sauvée ou à l'accueil
+            if (html5QrCode && html5QrCode.isScanning) {
+                html5QrCode.stop().then(() => { html5QrCode.clear(); }).catch(e => console.log(e));
+            }
             const etapeSauvee = localStorage.getItem('sauvegarde_etape') || 'accueil';
             showEtape(etapeSauvee);
         }
 
         function onScanSuccess(decodedText, decodedResult) {
-            // Le QR Code scanné est une URL. On extrait juste la partie après le "#"
             let targetHash = decodedText;
             if (decodedText.includes('#')) {
                 targetHash = decodedText.split('#')[1];
             }
 
-            // Si la section existe dans notre code, on y va
             if (targetHash && document.getElementById(targetHash)) {
-                html5QrcodeScanner.clear(); // Arrête la caméra
-                window.location.hash = targetHash; // Change l'écran
+                if (html5QrCode && html5QrCode.isScanning) {
+                    html5QrCode.stop().then(() => {
+                        html5QrCode.clear();
+                        window.location.hash = targetHash;
+                    }).catch(e => console.log(e));
+                } else {
+                    window.location.hash = targetHash;
+                }
             } else {
                 alert("QR Code non reconnu !");
             }
@@ -543,12 +548,14 @@
                 error.style.display = 'none'; input.style.border = "2px solid #4caf50";
                 
                 if (etape === 'etapeEcho') {
-                    alert("Exact. Va chercher ton prochain indice là où nos reflets se croisent.");
+                    input.style.display = 'none';
+                    document.getElementById('btn-etapeEcho').style.display = 'none';
+                    document.getElementById('success-etapeEcho').style.display = 'block';
                 } else if (etape === 'etape4') {
                     window.location.hash = '#etape5';
                 } else if (etape === 'etape5') {
                     input.style.display = 'none';
-                    document.querySelector('#etape5 button').style.display = 'none';
+                    document.getElementById('btn-etape5').style.display = 'none';
                     document.getElementById('success-etape5').style.display = 'block';
                 }
             } else {
