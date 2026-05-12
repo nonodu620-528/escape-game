@@ -146,11 +146,12 @@
            ========================================= */
         .empreinte-container {
             width: 120px;
-            height: 160px; /* Un peu plus haut pour faire réaliste */
+            height: 160px;
+            /* Un peu plus haut pour faire réaliste */
             margin: 20px auto;
             position: relative;
             cursor: pointer;
-            
+
             /* L'image de l'empreinte sert de pochoir */
             mask-image: url('empreinte.png');
             -webkit-mask-image: url('empreinte.png');
@@ -160,8 +161,9 @@
             -webkit-mask-repeat: no-repeat;
             mask-position: center;
             -webkit-mask-position: center;
-            
-            background-color: #333; /* Couleur de base (empreinte non remplie) */
+
+            background-color: #333;
+            /* Couleur de base (empreinte non remplie) */
         }
 
         #empreinte-fill {
@@ -265,22 +267,69 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        #piece1 { background-position: 0 0; }
-        #piece2 { background-position: -75px 0; }
-        #piece3 { background-position: -150px 0; }
-        #piece4 { background-position: -225px 0; }
-        #piece5 { background-position: 0 -75px; }
-        #piece6 { background-position: -75px -75px; }
-        #piece7 { background-position: -150px -75px; }
-        #piece8 { background-position: -225px -75px; }
-        #piece9 { background-position: 0 -150px; }
-        #piece10 { background-position: -75px -150px; }
-        #piece11 { background-position: -150px -150px; }
-        #piece12 { background-position: -225px -150px; }
-        #piece13 { background-position: 0 -225px; }
-        #piece14 { background-position: -75px -225px; }
-        #piece15 { background-position: -150px -225px; }
-        #piece16 { background-position: -225px -225px; }
+        #piece1 {
+            background-position: 0 0;
+        }
+
+        #piece2 {
+            background-position: -75px 0;
+        }
+
+        #piece3 {
+            background-position: -150px 0;
+        }
+
+        #piece4 {
+            background-position: -225px 0;
+        }
+
+        #piece5 {
+            background-position: 0 -75px;
+        }
+
+        #piece6 {
+            background-position: -75px -75px;
+        }
+
+        #piece7 {
+            background-position: -150px -75px;
+        }
+
+        #piece8 {
+            background-position: -225px -75px;
+        }
+
+        #piece9 {
+            background-position: 0 -150px;
+        }
+
+        #piece10 {
+            background-position: -75px -150px;
+        }
+
+        #piece11 {
+            background-position: -150px -150px;
+        }
+
+        #piece12 {
+            background-position: -225px -150px;
+        }
+
+        #piece13 {
+            background-position: 0 -225px;
+        }
+
+        #piece14 {
+            background-position: -75px -225px;
+        }
+
+        #piece15 {
+            background-position: -150px -225px;
+        }
+
+        #piece16 {
+            background-position: -225px -225px;
+        }
 
         .coeur {
             position: fixed;
@@ -371,9 +420,9 @@
     <section id="etape-echo" class="container">
         <h1>L'Écho de notre Histoire</h1>
         <p id="desc-etapeEcho1">Ferme les yeux et écoute.</p>
-        <a href="https://open.spotify.com/track/7lEptt4wbM0yJTObx4cVwH" target="_blank" 
-           style="display: inline-block; background-color: #1DB954; color: white; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-family: sans-serif; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(29, 185, 84, 0.4);">
-           🎵 Écouter sur Spotify
+        <a href="https://open.spotify.com/intl-fr/track/21qg0IBZf8R12qHd9A3AA4" target="_blank"
+            style="display: inline-block; background-color: #1DB954; color: white; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-family: sans-serif; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(29, 185, 84, 0.4);">
+            🎵 Écouter sur Spotify
         </a>
         <p id="desc-etapeEcho2">Cette mélodie t'a déjà emportée quelque part... Dans quel espace, quel instant, quelle
             atmosphère ?</p>
@@ -679,9 +728,9 @@
         /* -------------------------------------------
            JEU : L'IMAGE BRISÉE (Puzzle)
            ------------------------------------------- */
-        let rotations = { 
-            1: 90, 2: 270, 3: 180, 4: 90, 
-            5: 180, 6: 270, 7: 90, 8: 180, 
+        let rotations = {
+            1: 90, 2: 270, 3: 180, 4: 90,
+            5: 180, 6: 270, 7: 90, 8: 180,
             9: 270, 10: 90, 11: 180, 12: 270,
             13: 180, 14: 90, 15: 270, 16: 180
         };
