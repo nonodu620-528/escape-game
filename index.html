@@ -504,6 +504,12 @@
 
         // Au chargement de l'app (MÉMOIRE)
         window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('reset') === 'true') {
+                localStorage.removeItem('sauvegarde_etape');
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+            
             const etapeSauvee = localStorage.getItem('sauvegarde_etape');
             if (window.location.hash) {
                 showEtape(window.location.hash); // S'il y a un lien direct
