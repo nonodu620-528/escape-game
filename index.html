@@ -245,33 +245,44 @@
            ========================================= */
         .puzzle-grid {
             display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
+            grid-template-columns: repeat(4, 75px);
+            grid-template-rows: repeat(4, 75px);
             gap: 2px;
             margin: 0 auto 20px auto;
             justify-content: center;
         }
 
         .puzzle-piece {
-            width: 100px;
-            height: 100px;
+            width: 75px;
+            height: 75px;
             /* Remplacer 'photo_couple.jpg' par le nom de votre vraie photo, qui doit de préférence être carrée (ex: 300x300 pixels) */
             background-image: url('photo_couple.JPG');
-            background-color: #333; /* Fond de secours */
+            background-color: #333;
+            /* Fond de secours */
             background-size: 300px 300px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            user-select: none;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
         #piece1 { background-position: 0 0; }
-        #piece2 { background-position: -100px 0; }
-        #piece3 { background-position: -200px 0; }
-        #piece4 { background-position: 0 -100px; }
-        #piece5 { background-position: -100px -100px; }
-        #piece6 { background-position: -200px -100px; }
-        #piece7 { background-position: 0 -200px; }
-        #piece8 { background-position: -100px -200px; }
-        #piece9 { background-position: -200px -200px; }
+        #piece2 { background-position: -75px 0; }
+        #piece3 { background-position: -150px 0; }
+        #piece4 { background-position: -225px 0; }
+        #piece5 { background-position: 0 -75px; }
+        #piece6 { background-position: -75px -75px; }
+        #piece7 { background-position: -150px -75px; }
+        #piece8 { background-position: -225px -75px; }
+        #piece9 { background-position: 0 -150px; }
+        #piece10 { background-position: -75px -150px; }
+        #piece11 { background-position: -150px -150px; }
+        #piece12 { background-position: -225px -150px; }
+        #piece13 { background-position: 0 -225px; }
+        #piece14 { background-position: -75px -225px; }
+        #piece15 { background-position: -150px -225px; }
+        #piece16 { background-position: -225px -225px; }
 
         .coeur {
             position: fixed;
@@ -363,7 +374,8 @@
 
     <section id="etape2" class="container">
         <h1>Le Retour</h1>
-        <p>Le monde extérieur s'efface. Franchis ce seuil, ferme doucement la porte et laisse l'atmosphère t'envelopper...</p>
+        <p>Le monde extérieur s'efface. Franchis ce seuil, ferme doucement la porte et laisse l'atmosphère
+            t'envelopper...</p>
         <p style="font-size: 1rem; color: #888; margin-top: 50px;">
             * Une fois à l'intérieur, trouve le prochain indice.
         </p>
@@ -374,10 +386,11 @@
         <h1>L'Écho de notre Histoire</h1>
         <p id="desc-etapeEcho1">Ferme les yeux et écoute.</p>
         <iframe style="border-radius:12px; margin-bottom: 30px;"
-            src="https://open.spotify.com/embed/track/7lEptt4wbM0yJTObx4cVwH?utm_source=generator&theme=0" width="100%"
+            src="https://open.spotify.com/embed/track/6rqhFgbbKwnb9MLmUQDhG6?utm_source=generator&theme=0" width="100%"
             height="152" frameBorder="0" allowfullscreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <p id="desc-etapeEcho2">Cette mélodie t'a déjà emportée quelque part... Dans quel espace, quel instant, quelle atmosphère ?</p>
+        <p id="desc-etapeEcho2">Cette mélodie t'a déjà emportée quelque part... Dans quel espace, quel instant, quelle
+            atmosphère ?</p>
         <input type="text" id="inputEtapeEcho" placeholder="Un lieu, un moment, une sensation...">
         <p class="error" id="errorEtapeEcho">Ce souvenir t'échappe encore...</p>
         <button onclick="verifierEtape('etapeEcho', 'sous les étoiles')" id="btn-etapeEcho">Valider</button>
@@ -401,6 +414,13 @@
             <div class="puzzle-piece" id="piece7" onclick="tournerPiece(7)"></div>
             <div class="puzzle-piece" id="piece8" onclick="tournerPiece(8)"></div>
             <div class="puzzle-piece" id="piece9" onclick="tournerPiece(9)"></div>
+            <div class="puzzle-piece" id="piece10" onclick="tournerPiece(10)"></div>
+            <div class="puzzle-piece" id="piece11" onclick="tournerPiece(11)"></div>
+            <div class="puzzle-piece" id="piece12" onclick="tournerPiece(12)"></div>
+            <div class="puzzle-piece" id="piece13" onclick="tournerPiece(13)"></div>
+            <div class="puzzle-piece" id="piece14" onclick="tournerPiece(14)"></div>
+            <div class="puzzle-piece" id="piece15" onclick="tournerPiece(15)"></div>
+            <div class="puzzle-piece" id="piece16" onclick="tournerPiece(16)"></div>
         </div>
         <div id="success-puzzle" class="success-msg">
             <p>L'image est désormais parfaite. À présent, rejoins le lit pour une épreuve de déduction.</p>
@@ -447,8 +467,9 @@
 
     <section id="etape5" class="container">
         <h1>L'Encre Invisible</h1>
-        <p id="desc-etape5">Laisse tes pas te guider vers le cocon de détente préparé pour toi.<br><br>Concentre-toi sur tes ressentis.
-            Allonge-toi sur le ventre. Laisse l'huile douce tracer un mot secret sur ton dos...</p>
+        <p id="desc-etape5">Laisse tes pas te guider vers le cocon de détente préparé pour toi.<br><br>Concentre-toi sur
+            tes ressentis.
+            Déshabille toi et allonge-toi sur le ventre. Laisse l'huile douce tracer un mot secret sur ton dos...</p>
         <input type="text" id="inputEtape5" placeholder="Le mot secret" style="margin-top: 20px;">
         <p class="error" id="errorEtape5">Ressens encore...</p>
         <button onclick="verifierEtape('etape5', 'désir')" id="btn-etape5">Valider</button>
@@ -509,7 +530,7 @@
                 localStorage.removeItem('sauvegarde_etape');
                 window.history.replaceState({}, document.title, window.location.pathname);
             }
-            
+
             const etapeSauvee = localStorage.getItem('sauvegarde_etape');
             if (window.location.hash) {
                 showEtape(window.location.hash); // S'il y a un lien direct
@@ -672,26 +693,37 @@
         /* -------------------------------------------
            JEU : L'IMAGE BRISÉE (Puzzle)
            ------------------------------------------- */
-        let rotations = { 1: 90, 2: 270, 3: 180, 4: 90, 5: 180, 6: 270, 7: 90, 8: 180, 9: 270 };
+        let rotations = { 
+            1: 90, 2: 270, 3: 180, 4: 90, 
+            5: 180, 6: 270, 7: 90, 8: 180, 
+            9: 270, 10: 90, 11: 180, 12: 270,
+            13: 180, 14: 90, 15: 270, 16: 180
+        };
+        let pieceClickTimes = {};
+
         window.addEventListener('load', () => {
-            for (let i = 1; i <= 9; i++) {
+            for (let i = 1; i <= 16; i++) {
                 const el = document.getElementById('piece' + i);
                 if (el) el.style.transform = `rotate(${rotations[i]}deg)`;
             }
         });
 
         function tournerPiece(id) {
+            const now = Date.now();
+            if (pieceClickTimes[id] && now - pieceClickTimes[id] < 300) return; // Anti double-clic
+            pieceClickTimes[id] = now;
+
             rotations[id] = (rotations[id] + 90) % 360;
             document.getElementById('piece' + id).style.transform = `rotate(${rotations[id]}deg)`;
-            
+
             let success = true;
-            for (let i = 1; i <= 9; i++) {
+            for (let i = 1; i <= 16; i++) {
                 if (rotations[i] !== 0) {
                     success = false;
                     break;
                 }
             }
-            
+
             if (success) {
                 document.getElementById('success-puzzle').style.display = 'block';
                 document.getElementById('desc-puzzle').style.display = 'none';
