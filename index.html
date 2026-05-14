@@ -215,18 +215,18 @@
 
         .grille-chiffres {
             display: grid;
-            /* === TAILLE DE LA GRILLE ===
-               Pour modifier : ajustez les valeurs en cm ci-dessous.
-               Règle : total largeur = padding×2 + (4 × cellule) + (3 × gap)
-               Valeurs actuelles → 0.5×2 + 4×0.68 + 3×0.3 ≈ 4.62cm (filtre = 4.6cm)
-               total hauteur = 0.5×2 + 5×0.68 + 4×0.3 ≈ 5.7cm  (filtre = 5.7cm) */
-            grid-template-columns: repeat(4, 0.68cm);
-            grid-template-rows: repeat(5, 0.68cm);
-            gap: 0.3cm;
+            /* === CALIBRAGE DE LA GRILLE ===
+               Les cm CSS ne correspondent pas aux cm physiques sur mobile.
+               Utilisez ces valeurs en px et testez sur le téléphone.
+               Taille totale visible ≈ largeur des 4 colonnes + 3 gaps + 2x padding
+               Actuellement : 4×42 + 3×8 + 2×18 = 228px */
+            grid-template-columns: repeat(4, 42px);
+            grid-template-rows: repeat(5, 42px);
+            gap: 8px;
             justify-content: center;
             background: #000;
-            padding: 0.5cm;
-            border-radius: 8px;
+            padding: 18px;
+            border-radius: 10px;
             margin: 0 auto 30px auto;
             border: 1px solid #333;
             width: fit-content;
@@ -237,7 +237,7 @@
             align-items: center;
             justify-content: center;
             font-family: monospace;
-            font-size: 0.5rem;  /* Ajustez cette valeur si les chiffres sont trop grands/petits */
+            font-size: 1.1rem; /* Ajustez si trop grand/petit */
             color: #666;
         }
 
